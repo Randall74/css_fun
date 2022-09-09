@@ -1,0 +1,173 @@
+$background: #ffffff;
+$outline-color: #195272;
+$face-color: #e1f4f0;
+$tongue-color: #f9bbbb;
+$inner-bg: #cedbdd;
+
+.cute-robot-v1{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .circle-bg {
+        background: $inner-bg;
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+        border: 8px solid $outline-color;
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            height: 100%;
+            width: 100%;
+            top: -3px;
+            left: 0;
+            border-radius: 100%;
+            border-bottom: 10px solid $outline-color;
+        }
+      
+        &:hover {
+          .robot-face {
+              top: 40px !important;
+          }
+
+          .eyes {
+              top: 30px !important;
+          }
+
+          .mouth {
+              background: $outline-color;
+              border: none;
+              clip-path: polygon(0% 30%, 100% 30%, 100% 100%, 0% 100%);
+
+              &:after{
+                  content: "";
+                  position: absolute;
+                  height: 80%;
+                  width: 80%;
+                  bottom: -30%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: $tongue-color;
+                  border-radius: 100%;
+              }
+          }
+        }
+
+        .robot-head {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+            border: 8px solid $outline-color;
+            border-radius: 85px/ 60px;
+            background: $background;
+            z-index: 4;
+            &:after {
+                content: "";
+                position: absolute;
+                top: -30px;
+                height: 30px;
+                width: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: $outline-color;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                top: -60px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 20px;
+                width: 20px;
+                background: $inner-bg;
+                border: 8px solid $outline-color;
+                border-radius: 100%;
+            }
+
+            .robot-face {
+                height: 120px;
+                width: 160px;
+                background: $inner-bg;
+                position: absolute;
+                top: 45px;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 8px solid $outline-color;
+                transition: all 200ms;
+                border-radius: 45px;
+
+                .eyes {
+                    height: 20px;
+                    width: 20px;
+                    background: $outline-color;
+                    border-radius: 100%;
+                    position: absolute;
+                    transition: all 200ms;
+                    top: 40px;
+
+                    &.left {
+                        left: 30px;
+                    }
+                    &.right {
+                        right: 30px;
+                    }
+                }
+
+                .mouth {
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 100%;
+                    border: 8px solid transparent;
+                    border-bottom-color: $outline-color;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 50px;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .robot-ear {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+            background: $background;
+            border: 8px solid $outline-color;
+            z-index: 3;
+            top: 30px;
+
+            &.left {
+                left: -20px;
+            }
+            &.right {
+                right: -20px;
+            }
+        }
+
+        .robot-body {
+            height: 50px;
+            width: 100px;
+            border: 8px solid $outline-color;
+            background: $background;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 25px 25px 30px 30px;
+        }
+    }
+}
